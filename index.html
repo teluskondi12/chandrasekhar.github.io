@@ -1,416 +1,409 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chandrasekhar Thimmappagari - Software Engineer Portfolio</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chandrasekhar Thimmappagari – Software Engineer</title>
+  <style>
+    :root {
+      --accent: #1a3a5c;
+      --accent-light: #2563a8;
+      --bg: #f9fafb;
+      --card: #ffffff;
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #e2e8f0;
+      --tag-bg: #e8f0fe;
+      --tag-color: #1a3a5c;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', Arial, sans-serif; background: var(--bg); color: var(--text); line-height: 1.65; }
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        }
+    /* ── HEADER ── */
+    header {
+      background: linear-gradient(135deg, #1a3a5c 0%, #2563a8 100%);
+      color: #fff;
+      padding: 52px 24px 44px;
+      text-align: center;
+    }
+    header h1 { font-size: 2.2rem; font-weight: 700; letter-spacing: 0.5px; margin-bottom: 6px; }
+    header .subtitle { font-size: 1.05rem; opacity: 0.9; margin-bottom: 22px; letter-spacing: 0.3px; }
+    .contact-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; }
+    .contact-links a {
+      color: #fff;
+      text-decoration: none;
+      background: rgba(255,255,255,0.15);
+      padding: 7px 16px;
+      border-radius: 20px;
+      font-size: 0.88rem;
+      transition: background 0.2s;
+    }
+    .contact-links a:hover { background: rgba(255,255,255,0.28); }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
+    /* ── LAYOUT ── */
+    main { max-width: 960px; margin: 0 auto; padding: 40px 20px 60px; }
+    section { margin-bottom: 44px; }
+    h2 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--accent);
+      margin-bottom: 20px;
+    }
 
-        header {
-            background: rgba(255, 255, 255, 0.95);
-            padding: 2rem;
-            border-radius: 15px;
-            margin-bottom: 2rem;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            text-align: center;
-        }
+    /* ── ABOUT ── */
+    .about-text { font-size: 0.97rem; color: var(--muted); max-width: 820px; }
 
-        header h1 {
-            font-size: 2.5rem;
-            color: #667eea;
-            margin-bottom: 0.5rem;
-        }
+    /* ── SKILLS ── */
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 18px; }
+    .skill-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; }
+    .skill-card h3 { font-size: 0.85rem; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 12px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 7px; }
+    .tag {
+      background: var(--tag-bg);
+      color: var(--tag-color);
+      font-size: 0.78rem;
+      padding: 3px 10px;
+      border-radius: 12px;
+      font-weight: 500;
+    }
 
-        header p {
-            font-size: 1.2rem;
-            color: #666;
-            margin-bottom: 1rem;
-        }
+    /* ── EXPERIENCE & EDUCATION ── */
+    .entry { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 22px 24px; margin-bottom: 16px; }
+    .entry-header { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 6px; margin-bottom: 4px; }
+    .entry-header h3 { font-size: 1rem; font-weight: 700; color: var(--text); }
+    .entry-date { font-size: 0.82rem; color: var(--accent-light); font-weight: 600; white-space: nowrap; }
+    .entry-company { font-size: 0.88rem; color: var(--muted); margin-bottom: 12px; }
+    .entry ul { padding-left: 18px; }
+    .entry ul li { font-size: 0.9rem; color: var(--muted); margin-bottom: 6px; }
 
-        .contact-info {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-            margin-top: 1rem;
-        }
+    /* ── PROJECTS ── */
+    .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; }
+    .project-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 22px 22px 18px; display: flex; flex-direction: column; }
+    .project-card h3 { font-size: 0.97rem; font-weight: 700; color: var(--text); margin-bottom: 6px; }
+    .project-meta { font-size: 0.78rem; color: var(--accent-light); font-weight: 600; margin-bottom: 12px; }
+    .project-card ul { padding-left: 16px; flex: 1; }
+    .project-card ul li { font-size: 0.88rem; color: var(--muted); margin-bottom: 5px; }
+    .project-link {
+      display: inline-block;
+      margin-top: 14px;
+      color: var(--accent-light);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      border: 1px solid var(--accent-light);
+      padding: 5px 14px;
+      border-radius: 16px;
+      transition: all 0.2s;
+    }
+    .project-link:hover { background: var(--accent-light); color: #fff; }
 
-        .contact-info a {
-            color: #667eea;
-            text-decoration: none;
-            padding: 8px 15px;
-            border: 2px solid #667eea;
-            border-radius: 25px;
-            transition: all 0.3s;
-        }
+    /* ── CERTIFICATIONS ── */
+    .certs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; }
+    .cert-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 16px 20px; display: flex; align-items: center; gap: 14px; }
+    .cert-icon { font-size: 1.6rem; }
+    .cert-card h4 { font-size: 0.9rem; font-weight: 700; color: var(--text); margin-bottom: 2px; }
+    .cert-card p { font-size: 0.8rem; color: var(--muted); }
 
-        .contact-info a:hover {
-            background: #667eea;
-            color: white;
-        }
+    /* ── FOOTER ── */
+    footer { text-align: center; padding: 28px 20px; font-size: 0.82rem; color: var(--muted); border-top: 1px solid var(--border); }
 
-        .section {
-            background: rgba(255, 255, 255, 0.95);
-            padding: 2rem;
-            margin-bottom: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        }
-
-        .section h2 {
-            color: #667eea;
-            margin-bottom: 1.5rem;
-            font-size: 2rem;
-            border-bottom: 3px solid #667eea;
-            padding-bottom: 0.5rem;
-        }
-
-        .about-content {
-            font-size: 1.1rem;
-            line-height: 1.8;
-        }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1rem;
-        }
-
-        .skill-category {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            padding: 1.5rem;
-            border-radius: 10px;
-            color: white;
-        }
-
-        .skill-category h3 {
-            margin-bottom: 0.8rem;
-            font-size: 1.2rem;
-        }
-
-        .skill-category ul {
-            list-style: none;
-        }
-
-        .skill-category li {
-            padding: 0.3rem 0;
-            padding-left: 1rem;
-            position: relative;
-        }
-
-        .skill-category li:before {
-            content: "▹";
-            position: absolute;
-            left: 0;
-        }
-
-        .experience-item, .project-item {
-            margin-bottom: 2rem;
-            padding: 1.5rem;
-            background: #f8f9fa;
-            border-radius: 10px;
-            border-left: 4px solid #667eea;
-        }
-
-        .experience-item h3, .project-item h3 {
-            color: #667eea;
-            margin-bottom: 0.5rem;
-            font-size: 1.4rem;
-        }
-
-        .experience-item .company {
-            color: #764ba2;
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-        }
-
-        .experience-item .date {
-            color: #666;
-            font-style: italic;
-            margin-bottom: 1rem;
-        }
-
-        .experience-item ul, .project-item ul {
-            margin-left: 1.5rem;
-            margin-top: 0.8rem;
-        }
-
-        .experience-item li, .project-item li {
-            margin-bottom: 0.5rem;
-        }
-
-        .project-link {
-            display: inline-block;
-            margin-top: 0.5rem;
-            color: #667eea;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .project-link:hover {
-            text-decoration: underline;
-        }
-
-        .education-item {
-            margin-bottom: 1.5rem;
-            padding: 1rem;
-            background: #f8f9fa;
-            border-radius: 10px;
-        }
-
-        .education-item h3 {
-            color: #667eea;
-            margin-bottom: 0.3rem;
-        }
-
-        .certifications {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1rem;
-        }
-
-        .cert-item {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            padding: 1rem;
-            border-radius: 10px;
-            color: white;
-            text-align: center;
-        }
-
-        footer {
-            text-align: center;
-            padding: 2rem;
-            color: white;
-            font-size: 0.9rem;
-        }
-
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 1.8rem;
-            }
-
-            .contact-info {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .skills-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+    @media (max-width: 600px) {
+      header h1 { font-size: 1.6rem; }
+      .entry-header { flex-direction: column; }
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Chandrasekhar Thimmappagari</h1>
-            <p>Software Engineer | Full-Stack Developer | Cryptography Specialist</p>
-            <div class="contact-info">
-                <a href="mailto:cthim@uis.edu">📧 cthim@uis.edu</a>
-                <a href="tel:+12172209561">📱 +1 (217) 220-9561</a>
-                <a href="https://www.linkedin.com/in/chandrasekhar-thimmappagari-b759a3195" target="_blank">💼 LinkedIn</a>
-                <a href="https://github.com/chandrasekharTH" target="_blank">💻 GitHub</a>
-            </div>
-        </header>
 
-        <section class="section">
-            <h2>About Me</h2>
-            <div class="about-content">
-                <p>Experienced Software Engineer with expertise in full-stack development, software design, testing, and troubleshooting. Strong analytical and problem-solving skills with hands-on experience in machine learning, cryptography, and cybersecurity. Seeking opportunities to contribute expertise to innovative projects and collaborate with driven teams.</p>
-                <p style="margin-top: 1rem;">Currently pursuing Master's in Computer Science at University of Illinois Springfield. I specialize in C++, Python, cryptographic implementations, and digital signature technologies. My work has directly improved security measures by 40% and operational efficiency by 92% in production environments.</p>
-            </div>
-        </section>
+<!-- ── HEADER ─────────────────────────────────────────────────────────────── -->
+<header>
+  <h1>Chandrasekhar Thimmappagari</h1>
+  <p class="subtitle">Software Engineer &nbsp;|&nbsp; C++ &nbsp;|&nbsp; Systems &amp; Security</p>
+  <div class="contact-links">
+    <a href="mailto:chandrasekhar2115@gmail.com">📧 chandrasekhar2115@gmail.com</a>
+    <a href="tel:+12172209561">📱 +1 (217) 220-9561</a>
+    <a href="https://www.linkedin.com/in/chandrasekhar-thimmappagari-b759a3195" target="_blank">💼 LinkedIn</a>
+    <a href="https://github.com/chandrasekharTH" target="_blank">💻 GitHub</a>
+    <a href="#" download>📄 Resume</a>
+  </div>
+</header>
 
-        <section class="section">
-            <h2>Technical Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h3>Programming Languages</h3>
-                    <ul>
-                        <li>Python</li>
-                        <li>Java</li>
-                        <li>C, C++</li>
-                        <li>JavaScript</li>
-                        <li>React.js</li>
-                        <li>HTML/CSS</li>
-                        <li>Shell Scripting</li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <h3>Frameworks & Libraries</h3>
-                    <ul>
-                        <li>Django, Flask</li>
-                        <li>TensorFlow, PyTorch</li>
-                        <li>OpenSSL, PKCS#11</li>
-                        <li>MFC, QT, Curl</li>
-                        <li>Scikit-learn, Pandas</li>
-                        <li>Apache C++ Standard Library</li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <h3>Cryptography & Security</h3>
-                    <ul>
-                        <li>RSA, AES, SHA</li>
-                        <li>Digital Signatures</li>
-                        <li>HSM Integration</li>
-                        <li>SSL Certificates</li>
-                        <li>Certificate Generation</li>
-                        <li>CryptoAPI</li>
-                        <li>Encryption & Decryption</li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <h3>Databases</h3>
-                    <ul>
-                        <li>SQL, MySQL</li>
-                        <li>SQL Server</li>
-                        <li>Oracle</li>
-                        <li>PostgreSQL</li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <h3>Tools & Technologies</h3>
-                    <ul>
-                        <li>VS Code, Git, GitHub</li>
-                        <li>AWS (Certified)</li>
-                        <li>Eclipse, PyCharm</li>
-                        <li>Jupyter Notebook</li>
-                        <li>Postman, Xcode</li>
-                        <li>Android Studio</li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <h3>Operating Systems</h3>
-                    <ul>
-                        <li>Microsoft Windows</li>
-                        <li>Linux</li>
-                        <li>macOS</li>
-                        <li>Amazon Linux</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
+<main>
 
-        <section class="section">
-            <h2>Professional Experience</h2>
-            
-            <div class="experience-item">
-                <h3>Associate C++ Developer</h3>
-                <div class="company">eMudhra Digital Campus, Bengaluru, India</div>
-                <div class="date">May 2023 – December 2024</div>
-                <ul>
-                    <li>Designed and implemented SHA-256-based digital signature functionalities, enhancing document security and reducing fraud risk by 40%</li>
-                    <li>Integrated cryptographic tokens and HSM (Hardware Security Module) features to enhance security and certificate management across multiple platforms</li>
-                    <li>Developed desktop GUI applications for cryptographic operations (32-bit and 64-bit) using MFC, OpenSSL, PKCS#11, and CURL for digital signature generation, CSR generation, and crypto algorithms with HSM integration</li>
-                    <li>Provided SSL certificates with CSR generation and collaborated with Certificate Authorities (CAs) for trust chain establishment</li>
-                    <li>Enhanced security measures with cryptographic algorithms and delivered critical projects with measurable impact on security and 92% efficiency improvement</li>
-                    <li>Utilized multiple development environments including MFC C++ in Visual Studio for Windows, GTKMM and OpenSSL in Xcode for macOS, and GTKMM for Linux implementation</li>
-                </ul>
-            </div>
+  <!-- ── ABOUT ──────────────────────────────────────────────────────────── -->
+  <section>
+    <h2>About Me</h2>
+    <p class="about-text">
+      Software Engineer with 3+ years of professional C++ development experience building mission-critical,
+      high-performance systems targeting Linux, Windows, and macOS. Deep expertise in modern C++ (C++11/14/17),
+      multithreading, memory management, object-oriented design, and distributed systems. Proven track record
+      delivering secure cryptographic platforms and cross-platform GUI applications in Agile environments.
+      Completing M.S. in Computer Science at the University of Illinois Springfield (Expected May 2026).
+    </p>
+  </section>
 
-            <div class="experience-item">
-                <h3>Associate Engineer - Product Development</h3>
-                <div class="company">Harman Connected Services, India</div>
-                <div class="date">December 2021 - April 2023</div>
-                <ul>
-                    <li>Created various machine learning models working with different data types including Pandas at Havells Research and Innovation Center (client)</li>
-                    <li>Developed automation tools to streamline manual tasks and processes, increasing operational efficiency</li>
-                    <li>Optimized log file processing, improving performance by 20% and reducing debugging time by 30%</li>
-                    <li>Provided production issue support and troubleshooting, diagnosing and resolving root causes promptly to ensure uninterrupted operational continuity, resulting in 95% reduction in system downtime</li>
-                    <li>Implemented multithreading with sockets for various client-server operations, including file transfer, data transformation, and socket communication</li>
-                </ul>
-            </div>
-        </section>
+  <!-- ── TECHNICAL SKILLS ───────────────────────────────────────────────── -->
+  <section>
+    <h2>Technical Skills</h2>
+    <div class="skills-grid">
 
-        <section class="section">
-            <h2>Key Projects</h2>
-            
-            <div class="project-item">
-                <h3>eMsignClick - Cross-Platform SSL Certificate Management Tool</h3>
-                <p><strong>Technologies:</strong> MFC C++, GTKMM, OpenSSL, PKCS#11</p>
-                <p><strong>Platforms:</strong> Windows, macOS, Linux | eMudhra</p>
-                <ul>
-                    <li>Developed SSL certificate issuance and CSR generation tools using MFC C++ for Windows, and GTKMM with OpenSSL for macOS and Linux platforms</li>
-                    <li>Enhanced security measures with cryptographic algorithms and PKCS#11 integration</li>
-                    <li>Delivered critical projects with measurable impact on security and 92% efficiency improvement</li>
-                </ul>
-                <a href="https://customer.emsign.com/downloadTool.jsp" class="project-link" target="_blank">View Project →</a>
-            </div>
+      <div class="skill-card">
+        <h3>Languages</h3>
+        <div class="tags">
+          <span class="tag">C++ (C++11/14/17/20)</span>
+          <span class="tag">Python</span>
+          <span class="tag">Java</span>
+          <span class="tag">JavaScript</span>
+          <span class="tag">Shell Scripting</span>
+          <span class="tag">HTML/CSS</span>
+        </div>
+      </div>
 
-            <div class="project-item">
-                <h3>eMClick - SSL Certificate Download & Token Management</h3>
-                <p><strong>Technologies:</strong> MFC C++, GTKMM, CURL, OpenSSL</p>
-                <p><strong>Platforms:</strong> Windows, macOS, Linux | eMudhra</p>
-                <ul>
-                    <li>Developed dialog-based GUI application for SSL certificate downloads and cryptographic token management using MFC C++ for Windows and GTKMM with CURL and OpenSSL for macOS</li>
-                    <li>Integrated OpenSSL and PKCS#11 for secure key-pair generation and CSR creation</li>
-                </ul>
-                <a href="https://embridge.emudhra.com/" class="project-link" target="_blank">View Project →</a>
-            </div>
+      <div class="skill-card">
+        <h3>C++ Expertise</h3>
+        <div class="tags">
+          <span class="tag">Multithreading</span>
+          <span class="tag">Memory Management</span>
+          <span class="tag">Concurrency</span>
+          <span class="tag">Template Metaprogramming</span>
+          <span class="tag">Asynchronous Execution</span>
+          <span class="tag">Object-Oriented Design</span>
+          <span class="tag">STL</span>
+          <span class="tag">Lock-free Programming</span>
+        </div>
+      </div>
 
-            <div class="project-item">
-                <h3>eMdha - Digital Signature Solution for UAE Client</h3>
-                <p><strong>Technologies:</strong> MFC C++, Visual Studio, Cryptographic APIs</p>
-                <p><strong>Platform:</strong> Windows | eMudhra</p>
-                <ul>
-                    <li>Developed using MFC C++ in Visual Studio for Windows platform to provide online certifications to users</li>
-                    <li>Secured personal information and enabled CSR generation through advanced cryptographic methods</li>
-                    <li>Enabled seamless certificate integration for UAE government clients</li>
-                </ul>
-                <a href="https://www.emdha.sa/emdha-digital-signature" class="project-link" target="_blank">View Project →</a>
-            </div>
-        </section>
+      <div class="skill-card">
+        <h3>Frameworks &amp; Libraries</h3>
+        <div class="tags">
+          <span class="tag">Qt Framework</span>
+          <span class="tag">MFC</span>
+          <span class="tag">GTKMM</span>
+          <span class="tag">OpenSSL</span>
+          <span class="tag">PKCS#11</span>
+          <span class="tag">CURL</span>
+          <span class="tag">TensorFlow</span>
+          <span class="tag">PyTorch</span>
+          <span class="tag">ONNX</span>
+          <span class="tag">Pandas</span>
+          <span class="tag">Scikit-learn</span>
+          <span class="tag">Django</span>
+          <span class="tag">Flask</span>
+        </div>
+      </div>
 
-        <section class="section">
-            <h2>Education</h2>
-            
-            <div class="education-item">
-                <h3>Master of Science in Computer Science</h3>
-                <p><strong>University of Illinois Springfield</strong></p>
-                <p>Springfield, Illinois, USA | January 2025 - Present</p>
-            </div>
-        </section>
+      <div class="skill-card">
+        <h3>Tools &amp; Build Systems</h3>
+        <div class="tags">
+          <span class="tag">GDB</span>
+          <span class="tag">Valgrind</span>
+          <span class="tag">CMake</span>
+          <span class="tag">Makefiles</span>
+          <span class="tag">Git</span>
+          <span class="tag">GitHub</span>
+          <span class="tag">Visual Studio</span>
+          <span class="tag">Xcode</span>
+          <span class="tag">Android Studio</span>
+          <span class="tag">AWS</span>
+          <span class="tag">VS Code</span>
+          <span class="tag">Postman</span>
+          <span class="tag">Jupyter Notebook</span>
+        </div>
+      </div>
 
-        <section class="section">
-            <h2>Certifications & Achievements</h2>
-            <div class="certifications">
-                <div class="cert-item">
-                    <strong>AWS Certified Cloud Practitioner</strong>
-                </div>
-                <div class="cert-item">
-                    <strong>Certified in Machine Learning & Deep Learning</strong><br>
-                    (TensorFlow, PyTorch)
-                </div>
-                <div class="cert-item">
-                    <strong>Top Performer in Cryptographic Security Solutions</strong><br>
-                    at eMudhra
-                </div>
-            </div>
-        </section>
+      <div class="skill-card">
+        <h3>Security &amp; Cryptography</h3>
+        <div class="tags">
+          <span class="tag">RSA</span>
+          <span class="tag">AES</span>
+          <span class="tag">SHA-256</span>
+          <span class="tag">HSM Integration</span>
+          <span class="tag">CryptoAPI</span>
+          <span class="tag">Digital Signatures</span>
+          <span class="tag">Certificate Management</span>
+          <span class="tag">PDF Security</span>
+          <span class="tag">CI/CD Pipelines</span>
+        </div>
+      </div>
 
-        <footer>
-            <p>&copy; 2025 Chandrasekhar Thimmappagari. All rights reserved.</p>
-            <p>4 Candlewood Dr APT 1, Springfield, IL 62704</p>
-        </footer>
+      <div class="skill-card">
+        <h3>Systems &amp; OS</h3>
+        <div class="tags">
+          <span class="tag">Linux (primary)</span>
+          <span class="tag">Windows</span>
+          <span class="tag">macOS</span>
+          <span class="tag">Android</span>
+          <span class="tag">iOS</span>
+          <span class="tag">Amazon Linux</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <h3>Databases</h3>
+        <div class="tags">
+          <span class="tag">MySQL</span>
+          <span class="tag">PostgreSQL</span>
+          <span class="tag">SQL Server</span>
+          <span class="tag">Oracle</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <h3>Core Competencies</h3>
+        <div class="tags">
+          <span class="tag">Distributed Systems</span>
+          <span class="tag">Low-Latency Optimization</span>
+          <span class="tag">Performance Profiling</span>
+          <span class="tag">Algorithms &amp; Data Structures</span>
+          <span class="tag">Agile / Scrum</span>
+          <span class="tag">Code Review</span>
+        </div>
+      </div>
+
     </div>
+  </section>
+
+  <!-- ── EXPERIENCE ─────────────────────────────────────────────────────── -->
+  <section>
+    <h2>Professional Experience</h2>
+
+    <div class="entry">
+      <div class="entry-header">
+        <h3>DART Staff – Digital Accessibility &amp; PDF Security</h3>
+        <span class="entry-date">August 2025 – Present</span>
+      </div>
+      <p class="entry-company">University of Illinois Springfield &nbsp;|&nbsp; Springfield, IL</p>
+      <ul>
+        <li>Developed and maintained PDF security workflows on Linux-based pipelines, applying encryption, redaction, and metadata management to ensure institutional compliance.</li>
+        <li>Automated document processing pipelines using Python scripting, reducing manual effort and improving pipeline reliability through structured monitoring and alerting.</li>
+        <li>Applied CI/CD automation practices to streamline deployment of security workflows across document repositories.</li>
+        <li>Collaborated with cross-functional stakeholders to define technical requirements and translate them into production-ready scalable solutions.</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <h3>Associate C++ Developer</h3>
+        <span class="entry-date">May 2023 – December 2024</span>
+      </div>
+      <p class="entry-company">eMudhra Digital Campus &nbsp;|&nbsp; Bengaluru, India</p>
+      <ul>
+        <li>Engineered mission-critical cross-platform GUI applications in modern C++ (C++11/14/17) using Qt Framework and MFC, targeting Linux, Windows, and macOS.</li>
+        <li>Designed and implemented Certificate Signing Request (CSR) generation and SSL workflows with PKCS#11-based Hardware Security Module (HSM) integration and OpenSSL key pair management.</li>
+        <li>Built multithreaded cryptographic pipelines with deep focus on memory management and concurrency, achieving 92% efficiency improvement and reducing document fraud risk by 40%.</li>
+        <li>Debugged complex memory, concurrency, and platform-specific issues across GCC/G++ toolchains on Linux, Visual Studio, and Xcode — documenting root-cause analysis findings.</li>
+        <li>Participated in design sessions and code reviews, enforcing object-oriented design best practices across distributed teams.</li>
+        <li>Worked in an Agile development environment, collaborating with product stakeholders to explain technical trade-offs and propose resilient implementation patterns.</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <h3>Associate Engineer – Product Development</h3>
+        <span class="entry-date">December 2021 – April 2023</span>
+      </div>
+      <p class="entry-company">Harman Connected Services &nbsp;|&nbsp; Bengaluru, India</p>
+      <ul>
+        <li>Built multithreaded client-server applications with socket communication for real-time, low-latency data transfer.</li>
+        <li>Developed machine learning model pipelines using TensorFlow, PyTorch, and Pandas for data-driven analytics across multiple data types.</li>
+        <li>Optimized system performance by 20%, reduced debugging turnaround by 30%, and achieved 95% reduction in downtime through systematic profiling and root-cause analysis.</li>
+        <li>Developed automation tools and scripts that eliminated manual tasks, improving overall engineering team efficiency and pipeline reliability.</li>
+      </ul>
+    </div>
+
+  </section>
+
+  <!-- ── PROJECTS ───────────────────────────────────────────────────────── -->
+  <section>
+    <h2>Key Projects</h2>
+    <div class="projects-grid">
+
+      <div class="project-card">
+        <h3>eMsignClick – Cross-Platform SSL Certificate Management</h3>
+        <p class="project-meta">C++11 · MFC · GTKMM · OpenSSL · PKCS#11 &nbsp;|&nbsp; Linux, Windows, macOS</p>
+        <ul>
+          <li>Built a cross-platform tool for SSL certificate issuance and CSR generation using MFC on Windows and GTKMM with OpenSSL on Linux/macOS.</li>
+          <li>PKCS#11 hardware token integration achieved 92% operational efficiency improvement.</li>
+          <li>Enables seamless cryptographic token management across all three platforms for real users.</li>
+        </ul>
+        <a href="https://docs.emsign.com/emsign-certinext/integrations/tools/emudhra-emsign-click-tool" class="project-link" target="_blank">View Live Tool →</a>
+      </div>
+
+      <div class="project-card">
+        <h3>eMClick – SSL Certificate Download &amp; Token Management</h3>
+        <p class="project-meta">C++11 · MFC · PKCS#11 · OpenSSL &nbsp;|&nbsp; Linux, Windows, macOS</p>
+        <ul>
+          <li>Dialog-based C++11/MFC application for downloading SSL certificates and managing cryptographic tokens.</li>
+          <li>Implemented secure key pair generation, CSR creation, and end-to-end Digital Signature Certificate (DSC) lifecycle management.</li>
+          <li>Production tool actively used by real customers for hardware-level certificate operations.</li>
+        </ul>
+        <a href="https://digitalsignaturebazaar.in/emudhra-dsc-download-process-2022" class="project-link" target="_blank">View Reference →</a>
+      </div>
+
+      <div class="project-card">
+        <h3>eMdha – Digital Signature Platform (UAE Government)</h3>
+        <p class="project-meta">MFC C++ · Visual Studio · Cryptographic APIs &nbsp;|&nbsp; Linux, Windows</p>
+        <ul>
+          <li>Delivered a regulated, mission-critical digital signature platform for UAE government clients under strict compliance requirements.</li>
+          <li>Advanced cryptographic workflows with high-reliability production deployment for legally binding certifications.</li>
+          <li>Provides secure digital identity and signature services for government and enterprise users.</li>
+        </ul>
+        <a href="https://www.emdha.sa" class="project-link" target="_blank">View Platform →</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── EDUCATION ──────────────────────────────────────────────────────── -->
+  <section>
+    <h2>Education</h2>
+    <div class="entry">
+      <div class="entry-header">
+        <h3>Master of Science in Computer Science</h3>
+        <span class="entry-date">January 2025 – Expected May 2026</span>
+      </div>
+      <p class="entry-company">University of Illinois Springfield &nbsp;|&nbsp; Springfield, IL</p>
+    </div>
+  </section>
+
+  <!-- ── CERTIFICATIONS ─────────────────────────────────────────────────── -->
+  <section>
+    <h2>Certifications &amp; Achievements</h2>
+    <div class="certs-grid">
+      <div class="cert-card">
+        <span class="cert-icon">☁️</span>
+        <div>
+          <h4>AWS Certified Cloud Practitioner</h4>
+          <p>Amazon Web Services &nbsp;|&nbsp; 2024</p>
+        </div>
+      </div>
+      <div class="cert-card">
+        <span class="cert-icon">🤖</span>
+        <div>
+          <h4>Machine Learning &amp; Deep Learning</h4>
+          <p>TensorFlow &amp; PyTorch &nbsp;|&nbsp; 2023</p>
+        </div>
+      </div>
+      <div class="cert-card">
+        <span class="cert-icon">🏆</span>
+        <div>
+          <h4>Top Performer – Cryptographic Security</h4>
+          <p>eMudhra Digital Campus &nbsp;|&nbsp; 2024</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>© 2026 Chandrasekhar Thimmappagari. All rights reserved.</p>
+  <p style="margin-top:6px;">Springfield, IL 62704 &nbsp;|&nbsp; chandrasekhar2115@gmail.com</p>
+</footer>
+
 </body>
 </html>
